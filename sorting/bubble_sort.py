@@ -1,16 +1,21 @@
 # Bubble sort in Python
-array = [10, 2, 8, 34, 6, 18]
+numbers = [10, 2, 8, 34, 6, 18]
 
-for pass_number in range(len(array)):
-    # Move larger number to the end
-    for counter in range(1, len(array)):
-        # Compare them, if in wrong order, swap them
-        if array[counter - 1] > array[counter]:
-            array[counter], array[counter-1] = array[counter-1], array[counter] # Don't try in another language
+# Create swapped flag, set to true in order to enter the main
+# Loop
+swapped = True
+# While elements have been swapped in the last pass,
+# Check elements again
+while swapped == True:
+    # Reset swap to False
+    swapped = False
+    # Do a pass in the list
+    for index in range(1, len(numbers)):
+        # Is current number lower than previous one?
+        if numbers[index] < numbers[index - 1]:
+            # Swap them
+            numbers[index], numbers[index - 1] = numbers[index - 1], numbers[index]
+            # If a swap has happened, flag it up
+            swapped = True
 
-
-        # Intermediate printout of the array
-        print(array) 
-
-
-
+print(numbers)
